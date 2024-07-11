@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALl User</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 2px solid rgb(255, 0, 157);
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }   
+
+        tr:nth-child(even) {
+            background-color: white;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #E1F2EF;
+            
+        }
+
+        .done-column {
+            background-color: #266157;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <Table>
+        <tr >
+            <th class="done-column">No</th>
+            <th class="done-column">Id</th>
+            <th class="done-column">Email</th>
+            <th class="done-column">User Name</th>
+            <th class="done-column">Edit UserName</th>
+        </tr>
+        <% users.forEach(function(user, index) { %>
+            <tr> 
+                <td><%= index+1 %></td>
+                <td><%= user.id %></td>
+                <td><%= user.email %></td>
+                <td><%= user.username %></td>
+                <td>
+                    <form method="GET" action="/user/<%=user.id%>/edit">
+                        <button>Edit UserName</button>
+                    </form>
+                </td>
+            </tr>
+        <% }) %>        
+    </Table>
+</body>
+</html>
+

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit UserName</title>
+    <style>
+        /* Apply the same font and background colors */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0b4a3f;
+            padding-top: 10%;
+        }
+        h2 {
+            color: rgb(182, 0, 148);
+        }
+
+        /* Style the form container */
+        form {
+            max-width: 60%;
+            margin: 0 auto;
+            padding: 5%;
+            border-radius: 5px;
+            border: 2px solid rgb(182, 0, 148);
+            background-color: white;
+        }
+
+        /* Style the input fields */
+        input[type="text"],
+        input[type="password"], button,
+        textarea {
+            width: 96%;
+            padding: 10px;
+            margin-bottom: 5px;
+            border: 1px solid darkgreen;
+            border-radius: 5px;
+        }
+
+        button {
+            color: white;
+            background-color: #2E695F;
+            width: 98.3%;
+            margin-top: 15px;
+        }
+
+        p {
+            margin-bottom: 5px;
+        }
+
+        /* Style the password input */
+        input[type="password"], textarea {
+            background-color: #E1F2EF;
+        }
+
+        /* Style the submit button */
+        input[type="submit"] {
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Add hover effect to the submit button */
+        input[type="submit"]:hover {
+            background-color: darkgreen;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <form method="post" action="/user/<%=user.id%>?_method=PATCH">
+        <h2> You are about to edit this UserName : <%= user.username %></h2>
+        <p>Edit your UserName</p>
+        <textarea name="username" id="" rows="1"><%= user.username %></textarea >
+        <p>Enter your password</p>
+        <input type="password" name="password" placeholder="enter your password" required>
+        <button>Edit</button>
+    </form>
+</body>
+</html>
